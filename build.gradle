@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group = 'webAutomation9WithPom'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testImplementation 'org.testng:testng:7.10.2'
+
+// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    testImplementation 'org.seleniumhq.selenium:selenium-java:4.21.0'
+
+// https://mvnrepository.com/artifact/com.aventstack/extentreports
+    testImplementation 'com.aventstack:extentreports:5.1.1'
+
+// https://mvnrepository.com/artifact/org.apache.poi/poi
+    testImplementation 'org.apache.poi:poi:5.2.5'
+
+// https://mvnrepository.com/artifact/com.thedeanda/lorem
+    testImplementation 'com.thedeanda:lorem:2.2'
+}
+
+test {
+    useTestNG()
+}

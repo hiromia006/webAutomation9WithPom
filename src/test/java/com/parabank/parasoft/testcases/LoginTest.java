@@ -15,6 +15,11 @@ public class LoginTest extends BaseTest {
                 .fillUsername("daasdsa")
                 .clickLoginLinkBtn();
         Assert.assertTrue(loginPage.hasError());
+
+        LoginPage loginPage2 = page.getInstance(LoginPage.class)
+                .fillUsername("daasdsa")
+                .clickLoginLinkBtn();
+        Assert.assertTrue(loginPage2.hasError());
     }
 
 

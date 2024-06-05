@@ -1,6 +1,6 @@
 package com.parabank.parasoft.testcases;
 
-import com.parabank.parasoft.pages.AccountsOverviewPage;
+import com.parabank.parasoft.pages.HomePage;
 import com.parabank.parasoft.pages.LoginPage;
 import com.parabank.parasoft.util.General;
 import org.testng.Assert;
@@ -43,7 +43,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void doLoginShouldSucceed() {
         LoginPage loginPage = page.getInstance(LoginPage.class);
-        AccountsOverviewPage overviewPage = loginPage
+        HomePage overviewPage = loginPage
                 .fillUsername(getUsername())
                 .fillPassword(getPassword())
                 .clickLoginBtn();

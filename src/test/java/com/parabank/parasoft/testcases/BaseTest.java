@@ -4,7 +4,9 @@ import com.parabank.parasoft.pages.BasePage;
 import com.parabank.parasoft.pages.Page;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -42,6 +44,21 @@ public class BaseTest {
 
             case "chrome":
                 driver = new ChromeDriver();
+                break;
+
+            case "firefoxHeadless":
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("--headless");
+                driver = new FirefoxDriver(firefoxOptions);
+                break;
+
+            case "chromeHeadless":
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--headless");
+                driver = new ChromeDriver(chromeOptions);
+                break;
+            default:
+                System.out.println("Please provide right Browser Name");
                 break;
         }
 

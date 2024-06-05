@@ -13,11 +13,14 @@ public class HomePage extends BasePage {
     }
 
     public OpenNewAccountPage clickOpenAccountLink() {
-        getWebElement(By.cssSelector("a[href='openaccount.htm']")).click();
+        By accountL=By.cssSelector("a[href='openaccount.htm']");
+        waitForElement(accountL);
+        getWebElement(accountL).click();
         return getInstance(OpenNewAccountPage.class);
     }
 
     public TransferFundsPage clickTransferFundLink() {
+        waitForElement(By.cssSelector("a[href='transfer.htm']"));
         getWebElement(By.cssSelector("a[href='transfer.htm']")).click();
         return getInstance(TransferFundsPage.class);
     }

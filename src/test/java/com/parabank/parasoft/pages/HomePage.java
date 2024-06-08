@@ -13,6 +13,7 @@ public class HomePage extends BasePage {
     }
 
     public OpenNewAccountPage clickOpenAccountLink() {
+        addInfo("This is Home Page");
         By accountL=By.cssSelector("a[href='openaccount.htm']");
         waitForElement(accountL);
         getWebElement(accountL).click();

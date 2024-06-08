@@ -1,5 +1,6 @@
 package com.parabank.parasoft.pages;
 
+import com.thedeanda.lorem.LoremIpsum;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -46,5 +47,24 @@ public class LoginPage extends BasePage {
         return fillUsername(username)
                 .fillPassword(password)
                 .clickLoginBtn();
+    }
+
+    public HomePage doLoginViaRegistration() {
+        String username = LoremIpsum.getInstance().getName();
+        return getInstance(LoginPage.class)
+                .clickRegistrationLink()
+                .fillFirstName(LoremIpsum.getInstance().getFirstName())
+                .fillLastName(LoremIpsum.getInstance().getLastName())
+                .fillAddress(LoremIpsum.getInstance().getTitle(3))
+                .fillCity(LoremIpsum.getInstance().getCity())
+                .fillState(LoremIpsum.getInstance().getCity())
+                .fillZipCode(LoremIpsum.getInstance().getZipCode())
+                .fillPhone(LoremIpsum.getInstance().getPhone())
+                .fillSsn("522-83-1308")
+                .fillUsername(username)
+                .fillPassword(username)
+                .fillConfirmPassword(username)
+                .clickRegisterBtn();
+
     }
 }

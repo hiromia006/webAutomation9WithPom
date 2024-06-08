@@ -9,7 +9,7 @@ public class TransferFundsTest extends BaseTest {
     @Test
     public void transferFundsShouldSucceed() {
         TransferFundsPage fundsPage = page.getInstance(LoginPage.class)
-                .doLogin(getUsername(), getPassword())
+                .doLoginViaRegistration()
                 .clickTransferFundLink()
                 .clickTransferFundsLink();
         Assert.assertTrue(fundsPage.hasCompleteTransfer());

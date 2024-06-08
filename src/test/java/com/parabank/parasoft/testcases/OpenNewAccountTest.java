@@ -15,7 +15,7 @@ public class OpenNewAccountTest extends BaseTest {
         Assert.assertEquals(loginPage.getPageTittle(), General.LOGIN_TITTLE);
 
         HomePage homePage = loginPage
-                .doLogin(getUsername(), getPassword());
+                .doLoginViaRegistration();
         Assert.assertTrue(homePage.hasLogoutLink());
 
         OpenNewAccountPage openNewAccountPage = homePage
@@ -42,7 +42,7 @@ public class OpenNewAccountTest extends BaseTest {
     @Test(priority = 0)
     public void openAccountShouldSucceed1() {
         OpenNewAccountPage newAccountPage = page.getInstance(LoginPage.class)
-                .doLogin(getUsername(), getPassword())
+                .doLoginViaRegistration()
                 .clickOpenAccountLink()
                 .clickNewAccountBtn();
         Assert.assertTrue(newAccountPage.hasAccountId());

@@ -1,6 +1,6 @@
 package com.parabank.parasoft.testcases;
 
-import com.parabank.parasoft.pages.AccountsOverviewPage;
+import com.parabank.parasoft.pages.HomePage;
 import com.parabank.parasoft.pages.LoginPage;
 import com.parabank.parasoft.util.General;
 import org.testng.Assert;
@@ -15,6 +15,11 @@ public class LoginTest extends BaseTest {
                 .fillUsername("daasdsa")
                 .clickLoginLinkBtn();
         Assert.assertTrue(loginPage.hasError());
+
+        LoginPage loginPage2 = page.getInstance(LoginPage.class)
+                .fillUsername("daasdsa")
+                .clickLoginLinkBtn();
+        Assert.assertTrue(loginPage2.hasError());
     }
 
 
@@ -37,10 +42,9 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void doLoginShouldSucceed() {
-        LoginPage loginPage = page.getInstance(LoginPage.class);
-        AccountsOverviewPage overviewPage = loginPage
-                .fillUsername("sqa")
-                .fillPassword("sqa")
+        HomePage overviewPage = page.getInstance(LoginPage.class)
+                .fillUsername(getUsername())
+                .fillPassword(getPassword())
                 .clickLoginBtn();
         Assert.assertTrue(overviewPage.hasLogoutLink());
     }

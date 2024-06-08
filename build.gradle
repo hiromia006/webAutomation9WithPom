@@ -21,6 +21,7 @@ dependencies {
 
 // https://mvnrepository.com/artifact/org.apache.poi/poi
     testImplementation 'org.apache.poi:poi:5.2.5'
+    testImplementation 'org.apache.poi:poi-ooxml:5.2.5'
 
 // https://mvnrepository.com/artifact/com.thedeanda/lorem
     testImplementation 'com.thedeanda:lorem:2.2'

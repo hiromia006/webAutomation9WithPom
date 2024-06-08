@@ -21,7 +21,7 @@ public class BasePage extends Page {
 
     @Override
     public WebElement getWebElement(By locator) {
-        addInfo("WebElement going to find");
+        addInfo(locator.toString() + " Locator going to find");
         WebElement element = null;
         try {
             element = driver.findElement(locator);
@@ -29,7 +29,7 @@ public class BasePage extends Page {
             System.out.println(locator.toString() + " Select or Locator Not Found");
 
         }
-        addInfo("Operation Successfully");
+        addInfo(locator.toString() + " Locator found");
         return element;
     }
 

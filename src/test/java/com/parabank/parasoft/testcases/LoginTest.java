@@ -42,8 +42,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void doLoginShouldSucceed() {
-        LoginPage loginPage = page.getInstance(LoginPage.class);
-        HomePage overviewPage = loginPage
+        HomePage overviewPage = page.getInstance(LoginPage.class)
                 .fillUsername(getUsername())
                 .fillPassword(getPassword())
                 .clickLoginBtn();

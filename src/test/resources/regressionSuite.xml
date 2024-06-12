@@ -10,7 +10,7 @@
         <!--        </packages>-->
 
         <classes>
-            <class name="com.parabank.parasoft.testcases.RegisterTest"></class>
+            <class name="com.parabank.parasoft.testcases.LoginTest"></class>
         </classes>
     </test>
 </suite>

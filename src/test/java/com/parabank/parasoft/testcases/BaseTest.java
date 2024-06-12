@@ -2,14 +2,19 @@ package com.parabank.parasoft.testcases;
 
 import com.parabank.parasoft.pages.BasePage;
 import com.parabank.parasoft.pages.Page;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -69,7 +74,10 @@ public class BaseTest {
     }
 
     @AfterMethod
-    public void tearDown() {
+    public void tearDown(ITestResult testResult) {
+        if (ITestResult.FAILURE == testResult.getStatus()) {
+            takeScreenshot();
+        }
         driver.quit();
     }
 
@@ -83,5 +91,15 @@ public class BaseTest {
 
     public WebDriver getWebDriver() {
         return driver;
+    }
+
+    public  void takeScreenshot() {
+        try {
+            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            String currentDir = System.getProperty("user.dir") + "/build/screenshots/";
+            FileUtils.copyFile(scrFile, new File(currentDir + System.currentTimeMillis() + ".png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

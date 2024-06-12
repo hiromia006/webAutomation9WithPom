@@ -25,6 +25,9 @@ dependencies {
 
 // https://mvnrepository.com/artifact/com.thedeanda/lorem
     testImplementation 'com.thedeanda:lorem:2.2'
+
+    // FileUtils.copyFile
+    testImplementation 'commons-io:commons-io:2.11.0'
 }
 
 test {
